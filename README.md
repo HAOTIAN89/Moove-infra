@@ -1,25 +1,23 @@
 # Moove-infra
 
-Moove-infra is the infrastructure of the models used on the Moove platform, and consists of model launcher, rag worker and infrastructure controller. 
-We use native `vllm serve` as model launcher, use [milvus-io/milvus](https://github.com/milvus-io/milvus) as the vector database, 
-and use `fastapi` framework to build the rag worker and infrastructure controller.
+Moove-infra provides the infrastructure for the models used on the Moove platform, comprising a model launcher, RAG (Retrieval-Augmented Generation) worker, and infrastructure controller. The setup utilizes `vllm serve` as the model launcher, [Milvus](https://github.com/milvus-io/milvus) as the vector database, and the `FastAPI` framework to build the RAG worker and infrastructure controller.
 
 ## How to start it
-To start the Moove-infra, you should first set up the environment by running
+To start Moove-infra, you should first set up the environment by running:
 ```sh
 ./setup.sh
 ```
-Then install and start the `milvus` open-source vector database by [docker or docker compose](https://milvus.io/docs/install_standalone-docker.md).
+Next, install and start the `Milvus` open-source vector database using either [docker or docker compose](https://milvus.io/docs/install_standalone-docker.md).
 
-If you want to use docker compose to install, the config file and commands are already in the `vllm-rag/milvus`.
+If you prefer to use Docker Compose, the configuration file and necessary commands are available in the `vllm-rag/milvus` directory.
 
-After starting the milvus, you should start the model launcher by running 
+After starting Milvus, initiate the model launcher by running: 
 ```sh
 ./model_launch.sh
 ```
-in the `vllm-serve` folder.
+from within the `vllm-serve` folder.
 
-Then start the rag worker and infrastructure controller by running
+Then, start the RAG worker and infrastructure controller by running:
 ```sh
 ./rag_worker_launch.sh
 ```
@@ -30,13 +28,13 @@ in the `vllm-rag` folder and
 in the `vllm-serve` folder.
 
 ## How to use it
-Currently Moove-infra supports direct operations on vector databases and LLM answers generation with RAG enhancements. For more specific usage methods, please see the following specific test cases.
+Moove-infra currently supports direct operations on vector databases and LLM (Large Language Model) answer generation with RAG enhancements. For detailed usage, please refer to the following test cases
 
-- `test/add_group.sh`: create one group/organization in the vector database if it doesn't exist.
-- `test/delete_group.sh`: delete one group/organization in the vector databse if it exists.
-- `test/add_document.sh`: add the chunks of one specific document into one specific group/organization in the vector database if this group/organization exists.
-- `test/add_document.sh`: delete all chunks of one specific document in one specific group/organization in the vector database if this document actually in the group/organization.
-- `test/get_information.sh`: get information about all groups/organizations in one dictionary.
-- `test/search.sh`: get the targeted chunks directly which will be added into the user prompt.
-- `test/llm_call_without_rag.sh`: get the llm answer without RAG enhancement。
-- `test/llm_call_with_rag.sh`: get the llm answer with RAG enhancement.
+- `test/add_group.sh`: creates one group/organization in the vector database if it doesn't already exist.
+- `test/delete_group.sh`: deletes one existing group/organization from the vector databse.
+- `test/add_document.sh`: adds chunks of a specified document to a specific group/organization in the vector database, provided that the group/organization exists.
+- `test/add_document.sh`: deletes all chunks of a specified document from a group/organization in the vector database if the document exists in that group/organization.
+- `test/get_information.sh`: retrieves information about all groups/organizations in a dictionary format.
+- `test/search.sh`: searches for and retrieves targeted chunks, which will be added to the user prompt in the llm_call_with_rag.sh.
+- `test/llm_call_without_rag.sh`: get the llm response without RAG enhancement。
+- `test/llm_call_with_rag.sh`: get the llm response with RAG enhancement.
