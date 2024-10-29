@@ -29,3 +29,14 @@ in the `vllm-rag` folder and
 ```
 in the `vllm-serve` folder.
 
+## How to use it
+Currently Moove-infra supports direct operations on vector databases and LLM answers generation with RAG enhancements. For more specific usage methods, please see the following specific test cases.
+
+- `test/add_group.sh`: create one group/organization in the vector database if it doesn't exist.
+- `test/delete_group.sh`: delete one group/organization in the vector databse if it exists.
+- `test/add_document.sh`: add the chunks of one specific document into one specific group/organization in the vector database if this group/organization exists.
+- `test/add_document.sh`: delete all chunks of one specific document in one specific group/organization in the vector database if this document actually in the group/organization.
+- `test/get_information.sh`: get information about all groups/organizations in one dictionary.
+- `test/search.sh`: get the targeted chunks directly which will be added into the user prompt.
+- `test/llm_call_without_rag.sh`: get the llm answer without RAG enhancement。
+- `test/llm_call_with_rag.sh`: get the llm answer with RAG enhancement.
