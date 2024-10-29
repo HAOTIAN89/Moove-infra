@@ -2,6 +2,9 @@
 
 Moove-infra provides the infrastructure for the models used on the Moove platform, comprising a model launcher, RAG (Retrieval-Augmented Generation) worker, and infrastructure controller. The setup utilizes `vllm serve` as the model launcher, [Milvus](https://github.com/milvus-io/milvus) as the vector database, and the `FastAPI` framework to build the RAG worker and infrastructure controller.
 
+## Framework
+<img src="Pictures/Framework.png" alt="framework"/>
+
 ## How to start it
 To start Moove-infra, you should first set up the environment by running:
 ```sh
