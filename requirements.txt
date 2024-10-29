@@ -1,0 +1,14 @@
+google-cloud-speech
+google-cloud-texttospeech
+openai
+uvicorn
+fastapi
+pyaudio
+wave
+httpx
+starlette
+pymilvus
+sentence-transformers
+langchain
+nltk
+vllm==0.6.1

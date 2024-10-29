@@ -1,0 +1,1 @@
+uvicorn app:app --host localhost --port 7070
