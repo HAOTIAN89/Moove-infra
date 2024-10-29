@@ -7,6 +7,9 @@ sudo apt install ffmpeg -y
 # Ensure Python 3 is installed
 sudo apt install python3-pip -y
 
+# Install docker compose cli
+sudo apt install docker-compose
+
 # Install required Python packages using pip
 pip install -r requirements.txt
 
